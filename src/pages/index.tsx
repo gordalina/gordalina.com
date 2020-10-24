@@ -32,7 +32,7 @@ const IndexPage: React.SFC = () => (
         My hobbies include contributing to{" "}
         <a href="https://github.com/gordalina">open source software</a>,
         dabbling in travel <Link to="/photography">photography</Link>,{" "}
-        <Link to="/music">music</Link> production, and motorcycle riding.
+        <Link to="/music">music production</Link>, and motorcycle riding.
         {/* ,and occasionally <a href="/articles">writing</a>. */}
       </Styled.p>
 

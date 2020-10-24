@@ -1,15 +1,33 @@
+/** @jsx jsx*/
+import { jsx } from "theme-ui"
 import React from "react"
-import styled from "styled-components"
+import { injectGlobal } from "emotion"
+import ThemeToggle from "./ThemeToggle"
 
-import GlobalStyle from "./GlobalStyle"
 import FontOptimization from "./FontOptimization"
-import { device } from "src/utils/device"
 
-const Container = styled.main`
-  padding: var(--spacing);
+injectGlobal`
+  * {
+    box-sizing: border-box;
 
-  @media ${device.phone} {
-    padding: var(--half-spacing);
+    /* gold */
+    --primary: #e3b23c;
+    --primary-light: #F0D494;
+    --primary-lighter: #FAF1DC;
+    --secondary: #E9E4F1;
+  }
+
+  a {
+    color: var(--primary);
+    text-decoration-color: var(--primary-light);
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  ::selection {
+    background-color: var(--primary-lighter);
   }
 `
 
@@ -17,12 +35,14 @@ interface LayoutProps {
   children: any
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => (
-  <>
-    <FontOptimization />
-    <GlobalStyle />
-    <Container>{children}</Container>
-  </>
-)
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  return (
+    <div sx={{ padding: [4, 6], minHeight: "100%" }}>
+      <FontOptimization />
+      <main>{children}</main>
+      {/* <ThemeToggle /> */}
+    </div>
+  )
+}
 
 export default Layout

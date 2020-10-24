@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Media, Player } from "react-media-player"
-import styled from "styled-components"
+import styled from "@emotion/styled"
+import theme from "src/theme"
 
 const CirclePlayer = styled.button`
   display: block;
@@ -11,7 +12,7 @@ const CirclePlayer = styled.button`
   background-color: transparent;
 
   fill: none;
-  stroke: var(--color-muted);
+  stroke: ${theme.colors.muted};
   stroke-width: 3;
 
   cursor: pointer;
@@ -19,7 +20,7 @@ const CirclePlayer = styled.button`
 `
 
 const CircleProgress = styled.circle`
-  stroke: var(--color-primary);
+  stroke: ${theme.colors.text};
   transition: 350ms stroke-dashoffset;
 
   /* position the start of the circle at the top */
@@ -28,12 +29,12 @@ const CircleProgress = styled.circle`
 `
 
 const Play = styled.polygon`
-  fill: var(--color-muted);
+  fill: ${theme.colors.muted};
   stroke-width: 0;
 `
 
 const Pause = styled.g`
-  fill: var(--color-muted);
+  fill: ${theme.colors.muted};
   stroke-width: 0;
 `
 

@@ -1,5 +1,4 @@
-const path = require("path")
-const theme = require("./src/theme.json")
+const theme = require(`${__dirname}/src/theme.js`)
 
 module.exports = {
   siteMetadata: {
@@ -11,27 +10,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-root-import`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
     `gatsby-plugin-fontawesome-css`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-preload-fonts`,
+    `gatsby-plugin-robots-txt`,
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: `gatsby-plugin-theme-ui`,
       options: {
-        decks: [],
-        extensions: [".mdx"],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: "gatsby-remark-prismjs",
-            options: {
-              classPrefix: "language-",
-              inlineCodeMarker: {
-                tsx: "tsx",
-              },
-              aliases: {},
-            },
-          },
-        ],
+        preset: theme,
       },
     },
     {
@@ -49,10 +35,47 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-sharp",
       options: {
         defaultQuality: 100,
       },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        decks: [],
+        extensions: [".mdx"],
+        defaultLayouts: {
+          pages: require.resolve("./src/components/layout/PageLayout.tsx"),
+        },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: "gatsby-remark-prismjs",
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: {
+                tsx: "tsx",
+              },
+              aliases: {}
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /src\/images/
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -61,26 +84,18 @@ module.exports = {
         short_name: `Samuel Gordalina`,
         start_url: `/`,
         background_color: theme.colors.background,
-        theme_color: theme.colors.text,
+        theme_color: theme.colors.primary,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-        omitGoogleFont: true,
-        includeNormalize: true,
+        icon: `src/images/brand/favicon.svg`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`EB Garamond`, `Proza Libre`],
+        fonts: [`Lato`],
         display: "swap",
       },
     },

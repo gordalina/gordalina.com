@@ -1,5 +1,7 @@
+/** @jsx jsx*/
+import { jsx } from "theme-ui"
 import React from "react"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faGithubAlt,
@@ -11,7 +13,6 @@ import * as links from "src/utils/links"
 import { device } from "src/utils/device"
 
 const SocialImage = styled.a`
-  color: var(--color-muted);
   margin-right: 0.75em;
 
   @media ${device.phone} {
@@ -20,19 +21,23 @@ const SocialImage = styled.a`
 `
 
 const SocialImages: React.SFC = () => (
-  <>
-    <SocialImage href={links.github} title="GitHub">
+  <div>
+    <SocialImage sx={{ color: "muted" }} href={links.github} title="GitHub">
       <FontAwesomeIcon icon={faGithubAlt} />
     </SocialImage>
 
-    <SocialImage href={links.linkedin} title="Linkedin">
+    <SocialImage sx={{ color: "muted" }} href={links.linkedin} title="Linkedin">
       <FontAwesomeIcon icon={faLinkedinIn} />
     </SocialImage>
 
-    <SocialImage href={links.instagram} title="Instagram">
+    <SocialImage
+      sx={{ color: "muted" }}
+      href={links.instagram}
+      title="Instagram"
+    >
       <FontAwesomeIcon icon={faInstagram} />
     </SocialImage>
-  </>
+  </div>
 )
 
 export default SocialImages

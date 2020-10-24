@@ -8,12 +8,12 @@
 // http://k88hudson.github.io/syntax-highlighting-theme-generator/www/
 // more here: https://ourcodeworld.com/articles/read/477/collection-of-the-best-open-source-prism-js-code-highlight-themes
 
+import './static/fonts/noe-display/style.css';
+
 // // best looking for dark
-// require('prismjs/themes/prism-okaidia.css');
-
-// // best default lighjt
 // require('prismjs/themes/prism-solarizedlight.css');
-
+// // best default lighjt
+require('prismjs/themes/prism-okaidia.css');
 // require('prism-themes/themes/prism-base16-ateliersulphurpool.light.css');
 // require('prism-themes/themes/prism-material-light.css');
 // require('prism-themes/themes/prism-duotone-light.css');

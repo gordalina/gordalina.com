@@ -1,49 +1,32 @@
 import React from "react"
 import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
-import styled from "styled-components"
-import { InstagramPhoto } from "src/types"
-import { device } from "src/utils/device"
+import styled from "@emotion/styled"
 
 const List = styled.ul`
-  list-style: none;
-  margin-left: 0;
-
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-
-  width: calc(100% + 1em);
-
-  @media ${device.tablet} {
-    justify-content: space-evenly;
-    width: calc(100% + 0.5em);
-  }
+  padding: 0;
+  margin: 0 -0.5em;
+  list-style: none;
+  position: relative;
 `
 
 const Item = styled.li`
-  width: 100%;
-  max-width: 250px;
-  transition: ease-out transform 0.25s;
-
-  margin: 0 1em 1em 0;
-
-  &:hover {
-    transform: scale(1.075);
-  }
-
-  @media ${device.tablet} {
-    max-width: 150px;
-    margin: 0 0.5em 0.5em 0;
-  }
+  position: relative;
+  flex-grow: 1;
+  min-width: 150px;
+  margin: 0.5em;
 `
 
-const InstagramFeed: React.SFC = () => {
+const InstagramFeed: React.FC = () => {
   const {
     allInstaNode: { edges },
   } = useStaticQuery(
     graphql`
       query {
-        allInstaNode {
+        allInstaNode(sort: { fields: timestamp, order: DESC }) {
           edges {
             node {
               id
@@ -63,12 +46,9 @@ const InstagramFeed: React.SFC = () => {
     `
   )
 
-  const photos: InstagramPhoto[] = edges.map(edge => edge.node)
-  photos.sort((a, b) => b.timestamp - a.timestamp)
-
   return (
     <List>
-      {photos.map(photo => (
+      {edges.map(({ node: photo }) => (
         <Item key={photo.id}>
           <a href={`https://www.instagram.com/p/${photo.id}/`}>
             <Img

@@ -8,6 +8,7 @@ export interface Article {
   hide: boolean
   slug: string
   summary: string
+  title: string
 }
 
 export interface ArticleQueryResponse {

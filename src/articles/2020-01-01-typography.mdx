@@ -19,6 +19,14 @@ https://markdown-it.github.io/
 
 ###### h6 Heading
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum nulla mollis tortor posuere, eu euismod arcu varius. Aliquam sollicitudin tellus pharetra eros commodo, ac auctor tortor molestie. Pellentesque convallis purus urna. Vivamus rhoncus, nisl in luctus euismod, lorem sapien condimentum turpis, vitae aliquet erat magna non elit. Maecenas vulputate venenatis felis molestie varius.
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ultrices feugiat enim ac auctor. Integer facilisis lacinia nibh. Etiam vulputate viverra eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus venenatis dui vitae scelerisque viverra. Nulla dictum efficitur mattis. Donec a imperdiet purus.
+
+Suspendisse ultrices elementum ipsum, vel mollis erat suscipit quis. Proin laoreet tincidunt purus quis pulvinar. Pellentesque eu luctus sapien, molestie ultrices felis. Vivamus vitae accumsan sem. Nulla vitae maximus libero, eget aliquet magna. Curabitur a dolor nec mi vehicula venenatis. Maecenas auctor egestas orci, et auctor ipsum.
+
+
+
 ## Horizontal Rules
 
 ---
@@ -149,82 +157,13 @@ With a reference later in the document defining the URL location:
 
 [id]: https://octodex.github.com/images/dojocat.jpg "The Dojocat"
 
-## Plugins
+Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 
-The killer feature of `markdown-it` is very effective support of
-[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
+[^1]: This is the first footnote.
+[^bignote]: Here's one with multiple paragraphs and code.
 
-### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
+  Indent paragraphs to include them in the footnote.
 
-> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
->
-> Shortcuts (emoticons): :-) :-( 8-) ;)
+  `{ my code }`
 
-see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
-
-### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
-
-- 19^th^
-- H~2~O
-
-### [`<ins>`](https://github.com/markdown-it/markdown-it-ins)
-
-++Inserted text++
-
-### [`<mark>`](https://github.com/markdown-it/markdown-it-mark)
-
-==Marked text==
-
-### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
-
-Footnote 1 link[^first].
-
-Footnote 2 link[^second].
-
-Inline footnote^[Text of inline footnote] definition.
-
-Duplicated footnote reference[^second].
-
-[^first]: Footnote **can have markup**
-
-  and multiple paragraphs.
-
-[^second]: Footnote text.
-
-### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
-
-Term 1
-
-: Definition 1
-with lazy continuation.
-
-Term 2 with _inline markup_
-
-: Definition 2
-
-        { some code, part of Definition 2 }
-
-    Third paragraph of definition 2.
-
-_Compact style:_
-
-Term 1
-~ Definition 1
-
-Term 2
-~ Definition 2a
-~ Definition 2b
-
-### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
-
-This is HTML abbreviation example.
-
-It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
-
-\*[HTML]: Hyper Text Markup Language
-
-### [Custom containers](https://github.com/markdown-it/markdown-it-container)
-
-::: warning
-_here be dragons_
-:::
+  Add as many paragraphs as you like.

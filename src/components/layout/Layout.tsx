@@ -1,7 +1,5 @@
-/** @jsx jsx*/
-import { jsx } from "theme-ui"
 import React from "react"
-import { injectGlobal } from "emotion"
+import { injectGlobal } from "@emotion/css"
 import ThemeToggle from "./ThemeToggle"
 
 import FontOptimization from "./FontOptimization"

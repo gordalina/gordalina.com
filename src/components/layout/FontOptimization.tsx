@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-const FontOptimization: React.SFC = () => (
+const FontOptimization: React.FC = () => (
   <Helmet
     link={[
       { rel: "dns-prefetch", href: "//fonts.googleapis.com" },

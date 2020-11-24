@@ -1,10 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Styled } from "theme-ui"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
 
-import Layout from "src/components/layout/Layout"
+import FooterLayout from "src/components/layout/FooterLayout"
 import SEO from "src/components/SEO"
 import { Article, ArticleQueryResponse } from "src/types"
 import { fromArticleQueryResponse } from "../utils/article"
@@ -15,18 +16,18 @@ interface ArticleTemplateProps {
   article: Article
 }
 
-const ArticleTemplate: React.SFC<ArticleTemplateProps> = ({ article }) => {
+const ArticleTemplate: React.FC<ArticleTemplateProps> = ({ article }) => {
   return (
-    <Layout>
+    <FooterLayout>
       <SEO title={article.title} />
       <article>
-        <h1>{article.title}</h1>
-        <p>{article.date}</p>
+        <Styled.h1>{article.title}</Styled.h1>
+        <Styled.p>{article.date}</Styled.p>
         <MDXProvider components={shortcodes}>
           <MDXRenderer>{article.body}</MDXRenderer>
         </MDXProvider>
       </article>
-    </Layout>
+    </FooterLayout>
   )
 }
 

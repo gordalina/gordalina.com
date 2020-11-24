@@ -1,4 +1,5 @@
 // https://coolors.co/484041-ebc670-f0d494-faf1dc-e9e4f1
+const prism = require('./gatsby-plugin-theme-ui/prism.json')
 
 const heading = {
   color: "text",
@@ -103,6 +104,7 @@ const theme = {
       },
     },
     code: {
+      ...prism,
       fontFamily: "monospace",
       fontSize: "inherit",
     },

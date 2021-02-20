@@ -4,28 +4,17 @@ import ThemeToggle from "./ThemeToggle"
 
 import FontOptimization from "./FontOptimization"
 
+//   * {
+//     box-sizing: border-box;
+//   }
+
 injectGlobal`
-  * {
-    box-sizing: border-box;
-
-    /* gold */
-    --primary: #e3b23c;
-    --primary-light: #F0D494;
-    --primary-lighter: #FAF1DC;
-    --secondary: #E9E4F1;
-  }
-
-  a {
-    color: var(--primary);
-    text-decoration-color: var(--primary-light);
-  }
-
   a:hover {
     text-decoration: none;
   }
 
   ::selection {
-    background-color: var(--primary-lighter);
+    background-color: var(--theme-ui-colors-highlight);
   }
 `
 

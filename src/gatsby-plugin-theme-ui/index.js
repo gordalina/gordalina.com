@@ -1,4 +1,3 @@
-// https://coolors.co/484041-ebc670-f0d494-faf1dc-e9e4f1
 const prism = require('./theme.json')
 
 const heading = {
@@ -13,6 +12,26 @@ const heading = {
 const list = {
   marginTop: 0,
   marginBottom: [4, 5],
+};
+
+const colors = {
+  text: "#484041",
+  background: "#ffffff",
+  primary: "#ebc400",
+  secondary: "#ffe252", // 20 stops lighter
+  highlight: "#fff3b8", // 40 stops lighter
+
+  codeBackground: "#f6f8fa",
+
+  _primaryLighter: "#f7f4c9", // 15 stops lighter
+  _accent: "#e9e4f1",
+  muted: "#cccccc",
+  modes: {
+    dark: {
+      text: "#e2e2e2",
+      background: "#25272a",
+    },
+  },
 };
 
 const xs = 0;
@@ -44,21 +63,7 @@ const theme = {
     body: "1.78em",
     heading: "1.115em",
   },
-  colors: {
-    text: "#484041",
-    background: "#ffffff",
-    primary: "#ebc670",
-    secondary: "#f0d494",
-    accent: "#e9e4f1",
-    highlight: "#faf1dc",
-    muted: "#cccccc",
-    modes: {
-      dark: {
-        text: "#e2e2e2",
-        background: "#25272a",
-      },
-    },
-  },
+  colors,
   styles: {
     root: {
       fontFamily: "body",
@@ -101,6 +106,7 @@ const theme = {
     },
     a: {
       color: "primary",
+      textDecorationColor: colors.secondary
     },
     inlineCode: {
       ...prism,

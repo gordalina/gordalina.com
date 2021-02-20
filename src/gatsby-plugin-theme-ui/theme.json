@@ -1,6 +1,6 @@
 {
-  "color": "#23292e",
-  "backgroundColor": "#f6f8fa",
+  "color": "text",
+  "backgroundColor": "codeBackground",
   ".comment,.doc-comment,.prolog,.doctype,.cdata": {
     "color": "#999988"
   },
@@ -8,13 +8,13 @@
     "opacity": 0.7
   },
   ".string,.attr-value": {
-    "color": "#032f62"
+    "color": "text"
   },
   ".punctuation,.operator": {
-    "color": "#393A34"
+    "color": "text"
   },
   ".symbol": {
-    "color": "#24292e"
+    "color": "#36acaa"
   },
   ".constant,.attr-name": {
     "color": "#005cc5"

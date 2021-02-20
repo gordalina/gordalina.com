@@ -1,4 +1,4 @@
-const theme = require(`${__dirname}/src/theme.js`)
+const theme = require(`${__dirname}/src/gatsby-plugin-theme-ui`)
 
 module.exports = {
   siteMetadata: {
@@ -16,9 +16,6 @@ module.exports = {
     `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-theme-ui`,
-      options: {
-        preset: theme,
-      },
     },
     {
       resolve: "gatsby-source-filesystem",

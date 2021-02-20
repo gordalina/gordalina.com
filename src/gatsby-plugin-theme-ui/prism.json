@@ -1,0 +1,35 @@
+{
+  "color": "#728fcb",
+  "backgroundColor": "#faf8f5",
+  ".comment,.prolog,.doctype,.cdata": {
+    "color": "#b6ad9a",
+    "fontStyle": "italic"
+  },
+  ".namespace": {
+    "opacity": 0.7
+  },
+  ".string,.attr-value": {
+    "color": "#896724"
+  },
+  ".punctuation,.operator": {
+    "color": "#063289"
+  },
+  ".entity,.url,.symbol,.number,.boolean,.variable,.constant,.property,.regex,.inserted": {
+    "color": "#b29762"
+  },
+  ".atrule,.keyword,.attr-name,.selector": {
+    "color": "#2d2006"
+  },
+  ".function,.deleted,.tag": {
+    "color": "#b29762"
+  },
+  ".function-variable": {
+    "color": "#7dc2d9"
+  },
+  ".tag,.selector,.keyword": {
+    "color": "#b7c9eb"
+  },
+  ".highlight": {
+    "background": "hsla(0, 0%, 70%, .5)"
+  }
+}

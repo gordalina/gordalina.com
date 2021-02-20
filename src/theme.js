@@ -1,7 +1,7 @@
 // https://coolors.co/484041-ebc670-f0d494-faf1dc-e9e4f1
 
-//https://github.com/system-ui/theme-ui/blob/v0.6.0-alpha.7/packages/prism/presets/duotone-light.json
-const prism = require('@theme-ui/prism/presets/github.json')
+// https://github.com/atelierbram/Base2Tone/blob/master/output/prism/_prism-base2tone-morning.scss
+const prism = require('./gatsby-plugin-theme-ui/prism.json')
 
 const heading = {
   color: "text",
@@ -104,19 +104,18 @@ const theme = {
     a: {
       color: "primary",
     },
-    pre: {
+    inlineCode: {
+      ...prism,
       fontFamily: "monospace",
-      overflowX: "auto",
-      code: {
-        color: "inherit",
-      },
+      fontSize: [ '14px', 0],
+      borderRadius: "0.25rem",
+      padding: "0.5rem",
     },
     code: {
       ...prism,
       fontFamily: "monospace",
       fontSize: [ '14px', 0],
       borderRadius: "0.5rem",
-      background: "#f6f6f6",
       lineHeight: "1.5rem",
       padding: ["1.25rem", "1.75rem"],
       whiteSpace: "pre-wrap",

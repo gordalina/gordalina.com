@@ -1,13 +1,21 @@
 // https://coolors.co/484041-ebc670-f0d494-faf1dc-e9e4f1
-const prism = require('./gatsby-plugin-theme-ui/prism.json')
+
+//https://github.com/system-ui/theme-ui/blob/v0.6.0-alpha.7/packages/prism/presets/duotone-light.json
+const prism = require('@theme-ui/prism/presets/github.json')
 
 const heading = {
   color: "text",
   fontFamily: "heading",
   lineHeight: "heading",
   fontWeight: "heading",
-  letterSpacing: "0.025rem"
+  letterSpacing: 1,
+  marginBottom: 2
 }
+
+const list = {
+  marginTop: 0,
+  marginBottom: [4, 5],
+};
 
 const xs = 0;
 const md = 7;
@@ -16,7 +24,7 @@ const theme = {
   // useColorSchemeMediaQuery: true,
 
   space: [
-    0, '0.125rem', '0.25rem', '0.5rem', // 0-3: fractional
+    '0', '0.125rem', '0.25rem', '0.5rem', // 0-3: fractional
     '1rem', '2rem', '4rem', '8rem',     // 4-7: multiples
     '16rem', '32rem'                    // 8+: multiples
   ],
@@ -91,7 +99,7 @@ const theme = {
       fontWeight: "body",
       lineHeight: "body",
       marginTop: 0,
-      marginBottom: 5,
+      marginBottom: [4, 5]
     },
     a: {
       color: "primary",
@@ -106,7 +114,12 @@ const theme = {
     code: {
       ...prism,
       fontFamily: "monospace",
-      fontSize: "inherit",
+      fontSize: [ '14px', 0],
+      borderRadius: "0.5rem",
+      background: "#f6f6f6",
+      lineHeight: "1.5rem",
+      padding: ["1.25rem", "1.75rem"],
+      whiteSpace: "pre-wrap",
     },
     table: {
       width: "100%",
@@ -124,6 +137,8 @@ const theme = {
     img: {
       maxWidth: "100%",
     },
+    ol: { ...list },
+    ul: { ...list },
   },
 }
 

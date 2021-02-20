@@ -22,7 +22,7 @@ const ArticleTemplate: React.FC<ArticleTemplateProps> = ({ article }) => {
       <SEO title={article.title} />
       <article>
         <Styled.h1>{article.title}</Styled.h1>
-        <Styled.p>{article.date}</Styled.p>
+        <Styled.p sx={{ color: "muted" }}>{article.date}</Styled.p>
         <MDXProvider components={shortcodes}>
           <MDXRenderer>{article.body}</MDXRenderer>
         </MDXProvider>

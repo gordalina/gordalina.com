@@ -37,8 +37,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div sx={{ padding: [4, 6], minHeight: "100%" }}>
       <FontOptimization />
-      <main sx={{ maxWidth: '36em' }}>{children}</main>
       {/* <ThemeToggle /> */}
+      <main sx={{ maxWidth: '38em' }}>{children}</main>
     </div>
   )
 }

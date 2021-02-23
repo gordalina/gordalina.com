@@ -4,24 +4,25 @@ import { Styled } from "theme-ui"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
+import * as Headings from "src/components/Headings"
 
 import Layout from "src/components/layout/Layout"
 import SEO from "src/components/SEO"
 import { Article, ArticleQueryResponse } from "src/types"
 import { fromArticleQueryResponse } from "../utils/article"
 
-const shortcodes = { Link } // Provide common components here
-
 interface ArticleTemplateProps {
   article: Article
 }
+
+const shortcodes = { Link, ...Headings } // Provide common components here
 
 const ArticleTemplate: React.FC<ArticleTemplateProps> = ({ article }) => {
   return (
     <Layout>
       <SEO title={article.title} />
       <article>
-        <Styled.h1>{article.title}</Styled.h1>
+        <Headings.h1>{article.title}</Headings.h1>
         <Styled.p sx={{ color: "muted" }}>{article.date}</Styled.p>
         <MDXProvider components={shortcodes}>
           <MDXRenderer>{article.body}</MDXRenderer>

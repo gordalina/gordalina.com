@@ -8,13 +8,12 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 
 import * as links from "src/utils/links"
-import { device } from "src/utils/device"
 
 const SocialImage = styled.a`
   margin-right: 0.75em;
 
-  @media ${device.phone} {
-    font-size: 1.5em;
+  &:last-child {
+    margin-right: 0;
   }
 `
 

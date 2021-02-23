@@ -20,11 +20,11 @@ const colors = {
   primary: "#ebc400",
   secondary: "#ffe252", // 20 stops lighter
   highlight: "#fff3b8", // 40 stops lighter
+  accent: "#6e40c9", // purple
 
   codeBackground: "#f6f8fa",
 
   _primaryLighter: "#f7f4c9", // 15 stops lighter
-  _accent: "#e9e4f1",
   muted: "#cccccc",
   modes: {
     dark: {

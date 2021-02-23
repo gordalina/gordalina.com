@@ -1,12 +1,7 @@
 import React from "react"
 import { injectGlobal } from "@emotion/css"
-import ThemeToggle from "./ThemeToggle"
-
 import FontOptimization from "./FontOptimization"
-
-//   * {
-//     box-sizing: border-box;
-//   }
+import Footer from "./Footer"
 
 injectGlobal`
   a:hover {
@@ -26,8 +21,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div sx={{ padding: [4, 6], minHeight: "100%" }}>
       <FontOptimization />
-      {/* <ThemeToggle /> */}
       <main sx={{ maxWidth: '38em' }}>{children}</main>
+      <Footer />
     </div>
   )
 }

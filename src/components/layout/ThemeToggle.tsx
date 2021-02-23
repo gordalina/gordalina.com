@@ -1,32 +1,22 @@
 import React from "react"
-import styled from "@emotion/styled"
+import { DarkModeSwitch, defaultProperties } from 'react-toggle-dark-mode';
 import { useColorMode } from "theme-ui"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons"
-
-const Container = styled.button`
-  position: absolute;
-
-  border: 0;
-  outline: 0;
-  padding: 0;
-
-  background: transparent;
-  cursor: pointer;
-`
+import merge from 'deepmerge';
 
 const ThemeToggle: React.FC = () => {
   const [colorMode, setColorMode] = useColorMode()
 
+  const animationProperties = merge(defaultProperties, { light: { mask: { cy: '0%' } } });
+
   return (
-    <Container
-      sx={{ color: "muted", fontSize: 2 }}
-      onClick={e => {
-        setColorMode(colorMode === "default" ? "dark" : "default")
-      }}
-    >
-      <FontAwesomeIcon icon={colorMode === "default" ? faMoon : faSun} />
-    </Container>
+    <DarkModeSwitch
+      checked={colorMode === "default"}
+      onChange={() => setColorMode(colorMode === "default" ? "dark" : "default")}
+      size={"1em"}
+      animationProperties={animationProperties}
+      moonColor={"var(--theme-ui-colors-accent)"}
+      sunColor={"var(--theme-ui-colors-primary)"}
+    />
   )
 }
 

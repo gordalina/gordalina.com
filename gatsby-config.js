@@ -51,7 +51,7 @@ module.exports = {
         decks: [],
         extensions: [".mdx"],
         defaultLayouts: {
-          pages: require.resolve("./src/components/layout/PageLayout.tsx"),
+          pages: require.resolve("./src/components/layout/Layout.tsx"),
         },
       },
     },

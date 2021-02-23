@@ -5,7 +5,7 @@ import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
 
-import FooterLayout from "src/components/layout/FooterLayout"
+import Layout from "src/components/layout/Layout"
 import SEO from "src/components/SEO"
 import { Article, ArticleQueryResponse } from "src/types"
 import { fromArticleQueryResponse } from "../utils/article"
@@ -18,7 +18,7 @@ interface ArticleTemplateProps {
 
 const ArticleTemplate: React.FC<ArticleTemplateProps> = ({ article }) => {
   return (
-    <FooterLayout>
+    <Layout>
       <SEO title={article.title} />
       <article>
         <Styled.h1>{article.title}</Styled.h1>
@@ -27,7 +27,7 @@ const ArticleTemplate: React.FC<ArticleTemplateProps> = ({ article }) => {
           <MDXRenderer>{article.body}</MDXRenderer>
         </MDXProvider>
       </article>
-    </FooterLayout>
+    </Layout>
   )
 }
 

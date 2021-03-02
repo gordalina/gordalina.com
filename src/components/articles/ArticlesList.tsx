@@ -19,6 +19,7 @@ export const ArticlesList: React.FC = () => {
             frontmatter {
               title
               hide
+              summary
               date(formatString: "MMMM do, YYYY")
             }
             fields {
@@ -41,7 +42,7 @@ export const ArticlesList: React.FC = () => {
           </Headings.h3>
 
           <span sx={{ color: `muted` }}>{article.frontmatter.date}</span>
-          <p>{article.excerpt}</p>
+          <p>{article.frontmatter.summary}</p>
         </li>
       ))
       }

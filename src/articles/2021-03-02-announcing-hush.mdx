@@ -1,0 +1,62 @@
+---
+title: Announcing Hush
+date: 2021-03-02
+---
+
+Today we are happy to announce [Hush](https://github.com/gordalina/hush)!
+
+Hush was purpose built to solve a common use case for projects that require secrets and want to inject them in a secure way without having to depend on secret files or hardcoded configuration.
+
+
+## Background & Motivation
+
+As an web applications engineer, I've always been interested in understanding and engineering the whole stack, from managing & configuring servers, all the way up the stack to frontend development. In my journey of working at several startups, and building my own projects, I've developed a an infrastructure engineering skillset.
+
+Fast-forward to 2020, I was working on my previous startup and wanted to deploy an API - an Elixir app in a containerized environment and realized that, by default, Elixir apps include a `prod.secrets.exs` which is used to configure an application in a production environment.
+
+This approach would require us to build docker images on a per-environment basis, which would have to include said secrets within them — this was not an ideal scenario.
+
+Slab, [the knowledge base that democratizes knowledge](https://slab.com), discovered the limits of this production configuration. As their team grew, sharing and maintaining this approach became more difficult — as did the security concerns of having secrets in docker images.
+
+As such, there was a need for a tool that could solve these problems and enable the deployment of docker images to any environment without having hardcoded secrets, as well as solving for config & dev/prod parity in the [twelve factor app methodology](https://12factor.net/).
+
+Hush demonstrated that it elegantly solved the problem and simplified their environment.
+
+## Example
+
+Hush implements Elixir's `Config.Provider` behavior, giving you a familiar and supported way to configure Elixir applications.
+
+In this example we can see a production configuration using three providers; AWS Secrets Manager, Google Secrets Manager, and System Environment.
+
+```elixir
+# config/prod.exs
+alias Hush.Provider.{AwsSecretsManager, GcpSecretManager, SystemEnvironment}
+
+config :app, Web.Endpoint,
+  http: [port: {:hush, SystemEnvironment, "PORT", [cast: :integer]}]
+
+config :app, App.Repo,
+  password: {:hush, GcpSecretManager, "CLOUDSQL_PASSWORD"}
+
+config :app, App.RedshiftRepo,
+  password: {:hush, AwsSecretsManager, "REDSHIFT_PASSWORD"}
+```
+
+## Features
+
+Hush ships, today, with the following features:
+
+- Extensible providers. Current available providers are:
+  - [AwsSecretsManager](https://github.com/gordalina/hush_aws_secrets_manager)
+  - [GoogleSecretManager](https://github.com/gordalina/hush_gcp_secret_manager)
+  - SystemEnvironment reads configuration from environmental variables.
+- Configuration Provider in [runtime and release mode](https://github.com/gordalina/hush#usage).
+- [Cast configuration values](https://github.com/gordalina/hush#casting) to native elixir types.
+- Writing configuration values [to files](https://github.com/gordalina/hush#transfomers).
+- Extensible transformers - [example of a custom transformer](https://github.com/gordalina/hush#writing-your-own-transfomer).
+
+All these features are thoroughly documented on [hexdocs.pm/hush](https://hexdocs.pm/hush).
+
+Finally, I'd like want to invite the community to ask any questions, contribute, or submit ideas on [Hush's Issue Tracker](https://github.com/gordalina/hush/issues).
+
+Let’s not keep this project a secret 🤫

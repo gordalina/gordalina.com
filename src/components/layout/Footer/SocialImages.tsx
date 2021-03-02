@@ -17,7 +17,7 @@ const SocialImage = styled.a`
   }
 `
 
-const SocialImages: React.FC = () => (
+export const SocialImages: React.FC = () => (
   <div>
     <SocialImage sx={{ color: "muted" }} href={links.github} title="GitHub">
       <FontAwesomeIcon icon={faGithubAlt} />

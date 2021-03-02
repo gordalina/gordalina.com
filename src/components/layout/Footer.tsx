@@ -1,23 +1,15 @@
 import React from "react"
-import styled from "@emotion/styled"
 import { Link } from "gatsby"
-import theme from "src/theme"
 import Brand from "src/images/brand/horizontal.svg"
-import ThemeToggle from "./ThemeToggle"
-import SocialImages from "../home/SocialImages"
+import ThemeToggle from "./Footer/ThemeToggle"
+import SocialImages from "./Footer/SocialImages"
 
-const Container = styled.footer`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
-
-const Footer: React.FC = () => (
-  <Container sx={{ mt: 6 }}>
+export const Footer: React.FC = () => (
+  <footer sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
     <Link to="/">
       <Brand style={{
-        stroke: theme.colors.muted,
-        fill: theme.colors.muted,
+        stroke: "var(--theme-ui-colors-muted)",
+        fill: "var(--theme-ui-colors-muted)",
         width: '2em',
         height: '2em'
       }} />
@@ -26,7 +18,7 @@ const Footer: React.FC = () => (
     <SocialImages />
 
     <ThemeToggle />
-  </Container>
+  </footer>
 )
 
 export default Footer

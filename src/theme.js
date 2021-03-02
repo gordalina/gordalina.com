@@ -1,1 +1,0 @@
-gatsby-plugin-theme-ui/index.js

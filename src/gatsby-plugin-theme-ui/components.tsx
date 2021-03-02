@@ -25,18 +25,10 @@ import 'prismjs/components/prism-js-extras'
 // import 'prismjs/components/prism-tsx'
 // import 'prismjs/components/prism-yaml'
 
-import { Link } from "gatsby"
-import SEO from "src/components/SEO"
-import Playlist from "src/components/music/Playlist"
-import InstagramFeed from "src/components/photography/InstagramFeed"
-import SocialImages from "src/components/home/SocialImages"
+import * as Components from "src/components"
 
 export default {
   pre: (props) => props.children,
   code: (props) => <ThemeUIPrism {...props} Prism={Prism} />,
-  InstagramFeed,
-  Link,
-  Playlist,
-  SEO,
-  SocialImages,
+  ...Components
 }

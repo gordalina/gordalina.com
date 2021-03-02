@@ -1,10 +1,16 @@
 import Prism from 'prismjs/components/prism-core'
 
 Prism.languages.elixir = {
-	'comment': /#.*/m,
 	'doc': {
-    pattern: /@(?:doc|moduledoc)\s+(?:("""|''')(?:\\[\s\S]|(?!\1)[^\\])+\1|.*)/,
-		alias: 'doc-comment'
+		pattern: /@(?:doc|moduledoc)\s+(?:("""|''')[\s\S]*?\1|("|')(?:\\(?:\r\n|[\s\S])|(?!\2)[^\\\r\n])*\2)/,
+		inside: {
+			'attribute': /^@\w+/,
+			'string': /['"][\s\S]+/
+		}
+	},
+	'comment': {
+		pattern: /#.*/m,
+		greedy: true
 	},
 	// ~r"""foo""" (multi-line), ~r'''foo''' (multi-line), ~r/foo/, ~r|foo|, ~r"foo", ~r'foo', ~r(foo), ~r[foo], ~r{foo}, ~r<foo>
 	'regex': {
@@ -42,22 +48,12 @@ Prism.languages.elixir = {
 		lookbehind: true,
 		alias: 'symbol'
 	},
-  'atom-module': {
-    pattern: /\b[A-Z](?:[A-Z_a-z]|\dx?)*\b/,
-    alias: 'class-name'
-  },
+	'module': {
+		pattern: /\b[A-Z]\w*\b/,
+		alias: 'class-name'
+	},
 	// Look-ahead prevents bad highlighting of the :: operator
 	'attr-name': /\w+\??:(?!:)/,
-	'capture': {
-		// Look-behind prevents bad highlighting of the && operator
-		pattern: /(^|[^&])&(?:[^&\s\d()][^\s()]*|(?=\())/,
-		lookbehind: true,
-		alias: 'function'
-	},
-  'function-call': {
-    pattern: /#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(\?|!)?(?=\s*(?:\.\s*\s*)?\()/,
-    alias: 'function'
-  },
 	'argument': {
 		// Look-behind prevents bad highlighting of the && operator
 		pattern: /(^|[^&])&\d+/,
@@ -68,6 +64,7 @@ Prism.languages.elixir = {
 		pattern: /@\w+/,
 		alias: 'variable'
 	},
+	'function': /\b[_a-zA-Z]\w*[?!]?(?:(?=\s*(?:\.\s*)?\()|(?=\/\d+))/,
 	'number': /\b(?:0[box][a-f\d_]+|\d[\d_]*)(?:\.[\d_]+)?(?:e[+-]?[\d_]+)?\b/i,
 	'keyword': /\b(?:after|alias|and|case|catch|cond|def(?:callback|exception|impl|module|p|protocol|struct|delegate)?|do|else|end|fn|for|if|import|not|or|raise|require|rescue|try|unless|use|when)\b/,
 	'boolean': /\b(?:true|false|nil)\b/,
@@ -84,20 +81,8 @@ Prism.languages.elixir = {
 			lookbehind: true
 		}
 	],
-	'punctuation': /<<|>>|[.,%\[\]{}()]/,
+	'punctuation': /<<|>>|[.,%\[\]{}()]/
 };
-
-Prism.languages.insertBefore('elixir', 'keyword', {
-	'module': {
-		pattern: /\b(defmodule\s)[A-Z][\w.\\]+/,
-		lookbehind: true,
-		alias: 'class-name'
-	},
-	'function': {
-		pattern: /\b(defp?\s)[\w.\\]+/,
-		lookbehind: true
-	}
-});
 
 Prism.languages.elixir.string.forEach(function(o) {
 	o.inside = {

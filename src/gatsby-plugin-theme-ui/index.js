@@ -21,15 +21,36 @@ const colors = {
   secondary: "#ffe252", // 20 stops lighter
   highlight: "#fff3b8", // 40 stops lighter
   accent: "#6e40c9", // purple
-
-  codeBackground: "#f6f8fa",
-
-  _primaryLighter: "#f7f4c9", // 15 stops lighter
   muted: "#cccccc",
+
+  "code-text": "#484041",
+  "code-background": "#f6f8fa",
+  "code-comments": "#999988",
+  "code-punctuation": "#484041",
+  "code-string": "#484041",
+  "code-property": "#36acaa",
+  "code-variable": "#36acaa",
+  "code-keyword": "#d73a49",
+  "code-function": "#6f42c1",
+  "code-class-name": "#6f42c1",
+  "code-selector": "#005cc5",
+
   modes: {
     dark: {
       text: "#e2e2e2",
       background: "#25272a",
+
+      "code-text": "#9cdcfe",
+      "code-background": "#1e1e1e",
+      "code-comments": "#6a9955",
+      "code-punctuation": "#808080",
+      "code-string": "rgb(206, 145, 120)",
+      "code-property": "rgb(181, 206, 168)",
+      "code-variable": "rgb(181, 206, 168)",
+      "code-keyword": "rgb(86, 156, 214)",
+      "code-function": "#dcdcaa",
+      "code-class-name": "rgb(78, 201, 176)",
+      "code-selector": "rgb(156, 220, 254)",
     },
   },
 };
@@ -106,7 +127,10 @@ const theme = {
     },
     a: {
       color: "primary",
-      textDecorationColor: colors.secondary
+      textDecorationColor: colors.secondary,
+      '&:hover': {
+        textDecoration: "none",
+      }
     },
     inlineCode: {
       ...prism,

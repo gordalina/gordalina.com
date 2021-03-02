@@ -34,9 +34,9 @@ const heading = (Component) => {
 
     return (
       <Wrapper id={id}>
-        <a aria-hidden={true} className={"anchor"} href={href} onClick={() => copy(href)}>
+        {/* <a aria-hidden={true} className={"anchor"} href={href} onClick={() => copy(href)}>
           <FontAwesomeIcon icon={faLink} />
-        </a>
+        </a> */}
         {children}
       </Wrapper>
     );

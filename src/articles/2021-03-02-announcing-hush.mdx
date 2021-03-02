@@ -4,7 +4,7 @@ date: 2021-03-02
 summary: An elixir library for projects that require secrets and want to inject them in a secure way without having to depend on secret files or hardcoded configuration.
 ---
 
-Today we are happy to announce [Hush](https://github.com/gordalina/hush)!
+Today I am happy to announce [Hush](https://github.com/gordalina/hush), the simplest way to inject secrets into your app configuration.
 
 Hush was purpose built to solve a common use case for projects that require secrets and want to inject them in a secure way without having to depend on secret files or hardcoded configuration.
 
@@ -13,9 +13,9 @@ Hush was purpose built to solve a common use case for projects that require secr
 
 As an web applications engineer, I've always been interested in understanding and engineering the whole stack, from managing & configuring servers, all the way up the stack to frontend development. In my journey of working at several startups, and building my own projects, I've developed a an infrastructure engineering skillset.
 
-Fast-forward to 2020, I was working on my previous startup and wanted to deploy an API - an Elixir app in a containerized environment and realized that, by default, Elixir apps include a `prod.secrets.exs` which is used to configure an application in a production environment.
+Fast-forward to 2020, I was working on a new project and wanted to deploy an Elixir API in a containerized environment and realized that, by default, Elixir apps include a `prod.secrets.exs` which is used to configure an application in a production environment.
 
-This approach would require us to build docker images on a per-environment basis, which would have to include said secrets within them — this was not an ideal scenario.
+The standard approach would require us to build docker images on a per-environment basis, which would have to include said secrets within them — this was not an ideal scenario.
 
 Slab, [the knowledge base that democratizes knowledge](https://slab.com), discovered the limits of this production configuration. As their team grew, sharing and maintaining this approach became more difficult — as did the security concerns of having secrets in docker images.
 
@@ -58,6 +58,6 @@ Hush ships, today, with the following features:
 
 All these features are thoroughly documented on [hexdocs.pm/hush](https://hexdocs.pm/hush).
 
-Finally, I'd like want to invite the community to ask any questions, contribute, or submit ideas on [Hush's Issue Tracker](https://github.com/gordalina/hush/issues).
+Finally, I'd want to invite the community to ask any questions, contribute, or submit ideas on [Hush's Issue Tracker](https://github.com/gordalina/hush/issues).
 
 Let’s not keep this project a secret 🤫

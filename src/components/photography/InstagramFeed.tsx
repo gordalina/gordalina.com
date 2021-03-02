@@ -20,7 +20,7 @@ const Item = styled.li`
   margin: 0.5em;
 `
 
-const InstagramFeed: React.FC = () => {
+export const InstagramFeed: React.FC = () => {
   const {
     allInstaNode: { edges },
   } = useStaticQuery(

@@ -29,7 +29,7 @@ const heading = (Component) => {
   `
 
   return ({ children, ...rest }) => {
-    const id = slug(String(children).trim());
+    const id = rest.id || slug(String(children).trim());
     const href = `${window.location.href.split('#')[0]}#${id}`;
 
     return (
@@ -50,3 +50,4 @@ export const h3 = heading(Styled.h3);
 export const h4 = heading(Styled.h4);
 export const h5 = heading(Styled.h5);
 export const h6 = heading(Styled.h6);
+export const Headings = { h1, h2, h3, h4, h5, h6 };

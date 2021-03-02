@@ -6,7 +6,7 @@ interface PlaylistProps {
   tracks: MusicTrack[]
 }
 
-const Playlist: React.FC<PlaylistProps> = ({ tracks }) => {
+export const Playlist: React.FC<PlaylistProps> = ({ tracks }) => {
   return (
     <>
       {tracks.map((track, index) => (

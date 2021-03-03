@@ -31,11 +31,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // Destructure the createPage function from the actions object
   const { createPage } = actions
-  const filter =
-    process.env.NODE_ENV === "production"
-      ? `(filter: { frontmatter: { hide: { ne: true }}})`
-      : ``
-
+  const isBuildingProd = [process.env.CONTEXT, process.env.NODE_ENV].includes("production")
+  const filter = isBuildingProd ? `(filter: { frontmatter: { hide: { ne: true }}})` : ``
   const result = await graphql(`
     query {
       allMdx ${filter} {

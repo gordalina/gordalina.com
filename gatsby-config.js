@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const theme = require(`${__dirname}/src/gatsby-plugin-theme-ui`)
 
 module.exports = {
@@ -112,11 +116,20 @@ module.exports = {
         // cookieDomain: "example.com",
       },
     },
+    // {
+    //   resolve: `gatsby-source-instagram`,
+    //   options: {
+    //     username: `256881476`,
+    //     // https://github.com/oorestisime/gatsby-source-instagram#instagram-graph-api-token
+    //     access_token: process.env.INSTAGRAM_ACCESS_TOKEN,
+    //     instagram_id: `110045791524969`
+    //   },
+    // },
     {
-      resolve: `gatsby-source-instagram`,
+      resolve: `gatsby-source-instagram-all`,
       options: {
-        username: `256881476`,
-      },
+        access_token: process.env.INSTAGRAM_ACCESS_TOKEN,
+      }
     },
     {
       resolve: `gatsby-plugin-sitemap`,

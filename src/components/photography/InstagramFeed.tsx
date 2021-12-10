@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "@emotion/styled"
 
@@ -22,11 +22,11 @@ const Item = styled.li`
 
 export const InstagramFeed: React.FC = () => {
   const {
-    allInstaNode: { edges },
+    allInstagramContent: { edges },
   } = useStaticQuery(
     graphql`
       query {
-        allInstaNode(sort: { fields: timestamp, order: DESC }) {
+        allInstagramContent {
           edges {
             node {
               id
@@ -34,9 +34,7 @@ export const InstagramFeed: React.FC = () => {
               caption
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 250, maxHeight: 250) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                  }
+                  gatsbyImageData(layout: CONSTRAINED, width: 250, height: 250, formats: [WEBP])
                 }
               }
             }
@@ -51,9 +49,9 @@ export const InstagramFeed: React.FC = () => {
       {edges.map(({ node: photo }) => (
         <Item key={photo.id}>
           <a href={`https://www.instagram.com/p/${photo.id}/`}>
-            <Img
-              fluid={photo.localFile.childImageSharp.fluid}
-              alt={photo.caption}
+            <GatsbyImage
+              image={!photo.localFile ? console.log(photo) : photo.localFile.childImageSharp.gatsbyImageData}
+              alt={photo.caption || ``}
             />
           </a>
         </Item>

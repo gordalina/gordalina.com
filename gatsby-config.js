@@ -47,7 +47,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        decks: [],
         extensions: [".mdx"],
         defaultLayouts: {
           pages: require.resolve("./src/components/layout/Layout.tsx"),
@@ -122,7 +121,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [`/private`],
+        excludes: [`/private`],
       },
     },
     {

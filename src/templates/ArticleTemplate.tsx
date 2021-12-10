@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Styled } from "theme-ui"
+import { Themed } from "theme-ui"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
@@ -18,7 +18,7 @@ const ArticleTemplate: React.FC<ArticleTemplateProps> = ({ article }) => {
       <SEO title={article.title} />
       <article>
         <Headings.h1>{article.title}</Headings.h1>
-        <Styled.p sx={{ color: "muted" }}>{article.date}</Styled.p>
+        <Themed.p sx={{ color: "muted" }}>{article.date}</Themed.p>
         <MDXProvider components={{ Link, ...Headings }}>
           <MDXRenderer>{article.body}</MDXRenderer>
         </MDXProvider>

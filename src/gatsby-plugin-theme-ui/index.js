@@ -59,7 +59,7 @@ const xs = 0;
 const md = 7;
 
 const theme = {
-  // useColorSchemeMediaQuery: true,
+  useColorSchemeMediaQuery: false,
 
   space: [
     '0', '0.125rem', '0.25rem', '0.5rem', // 0-3: fractional
